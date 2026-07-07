@@ -332,10 +332,10 @@ export const partners = {
   items: [
     {
       name: { zh: `阿根廷国家旅游局`, en: `Argentina National Tourism`, it: `Turismo Nazionale Argentina`, es: `Turismo Nacional de Argentina` } as T,
-      url: 'https://www.argentina.travel/es/pr/',
+      url: 'https://www.argentina.travel/es',
       abbr: 'ART',
       note: { zh: `国家旅游推广`, en: `National tourism promo`, it: `Promozione turistica nazionale`, es: `Promoción turística nacional` } as T,
-      attr: { zh: `阿根廷国家旅游局（INPROTUR）面向全球游客的官方推广网站，该专页详细介绍了景点所在的内格罗河省（Río Negro）的自然风光与旅游资源。`, en: `The official global promotion site of Argentina's national tourism board (INPROTUR); this page details the natural scenery and travel resources of Río Negro Province where the attraction is located.`, it: `Il sito ufficiale di promozione globale del turismo nazionale argentino (INPROTUR); questa pagina illustra i paesaggi naturali e le risorse turistiche della provincia di Río Negro dove si trova l'attrazione.`, es: `El sitio oficial de promoción global del turismo nacional argentino (INPROTUR); esta página detalla los paisajes naturales y los recursos turísticos de la provincia de Río Negro donde se encuentra el atractivo.` } as T,
+      attr: { zh: `阿根廷国家旅游推广机构（INPROTUR / Visit Argentina）的官方旅游门户，面向国际访客集中展示阿根廷各地目的地、旅行灵感与出行资讯。`, en: `The official tourism portal of Argentina's national promotion agency (INPROTUR / Visit Argentina), presenting destinations across the country together with travel inspiration and practical visitor information.`, it: `Il portale turistico ufficiale dell'ente nazionale di promozione dell'Argentina (INPROTUR / Visit Argentina), che presenta destinazioni in tutto il Paese insieme a ispirazioni di viaggio e informazioni pratiche per i visitatori.`, es: `El portal turistico oficial del organismo nacional de promoción de Argentina (INPROTUR / Visit Argentina), que reúne destinos de todo el país junto con inspiración de viaje e información práctica para visitantes.` } as T,
     },
     {
       name: { zh: `拉昆布雷西塔官方网站`, en: `La Cumbrecita Official Site`, it: `Sito Ufficiale di La Cumbrecita`, es: `Sitio Oficial de La Cumbrecita` } as T,
