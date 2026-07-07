@@ -1,0 +1,32 @@
+---
+import type { Lang } from '../i18n/utils';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const descMap: Record<Lang, string> = {
+  zh: 'La Olla（拉昆布雷西塔）是阿根廷科尔多瓦省卡拉穆奇塔山谷的一处天然水潭，由瀑布长年冲刷岩石形成，深约 6 米，是知名的远足区与夏季戏水地。',
+  en: 'La Olla in La Cumbrecita — a natural pool in the Calamuchita Valley of Córdoba Province, Argentina, carved by a waterfall into the rock to about 6 m deep; a popular hiking area and summer swim spot.',
+  es: 'La Olla en La Cumbrecita — una poza natural del Valle de Calamuchita, en la provincia de Córdoba, Argentina, tallada por una cascada en la roca hasta unos 6 m de profundidad; un área de senderismo y balneario de verano muy visitada.',
+};
+
+const tourist = JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'TouristAttraction',
+  name: 'La Olla - La Cumbrecita Natural Pool', description: descMap[lang],
+  image: new URL('/gallery/la-olla-1.jpg', Astro.site).href,
+  address: { '@type': 'PostalAddress', streetAddress: 'La Cumbrecita', addressLocality: 'La Cumbrecita', addressRegion: 'Córdoba', postalCode: '', addressCountry: 'AR' },
+  geo: { '@type': 'GeoCoordinates', latitude: -32.1236, longitude: -64.7667 },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.7', reviewCount: '19085' },
+  openingHours: 'Mo-Su 00:00-24:00',
+});
+
+const faqData = JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Is there an entrance fee?', acceptedAnswer: { '@type': 'Answer', text: 'No. La Olla is a free natural area reached on foot from the pedestrian town of La Cumbrecita; there is no ticket gate.' } },
+    { '@type': 'Question', name: 'How do I get there?', acceptedAnswer: { '@type': 'Answer', text: 'From Córdoba city or Villa General Belgrano, drive to La Cumbrecita, a pedestrian town, then walk the signed trail to La Olla. Many visitors arrive by car, remis/taxi, or on organised Calamuchita tours.' } },
+    { '@type': 'Question', name: 'When is the best time to visit?', acceptedAnswer: { '@type': 'Answer', text: 'Spring and summer (Oct–Mar) for swimming and the fullest waterfall; mornings are calmest and least crowded. The trail can be slippery after rain.' } },
+    { '@type': 'Question', name: 'Is it safe to visit?', acceptedAnswer: { '@type': 'Answer', text: 'The rocks around the pool are slippery and the water is deep — supervise children, wear proper footwear, and never dive. There are no lifeguards on site.' } },
+  ],
+});
+---
+<Fragment set:html={'<script type="application/ld+json">' + tourist + '</script><script type="application/ld+json">' + faqData + '</script>'} />
