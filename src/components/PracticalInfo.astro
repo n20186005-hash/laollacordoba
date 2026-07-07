@@ -9,6 +9,22 @@ const isTips = (c: any) => c.tips;
 <section id="practical" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
   <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">03 — {_(practical.sectionNum)}</div>
   <h2 class="font-display text-4xl md:text-6xl mt-4 mb-14 max-w-3xl" set:html={_(practical.heading)} />
+  <div class="mb-12 rounded-3xl border border-[color:var(--color-sun)]/50 bg-[color:var(--color-sun)]/15 p-6 md:p-8">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="text-2xl">⚠️</span>
+      <h3 class="font-display text-xl md:text-2xl text-[color:var(--color-ink)]">{_(practical.safetyTitle)}</h3>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="flex gap-3">
+        <span class="text-xl shrink-0">📵</span>
+        <p class="text-sm text-[color:var(--color-ink)]/90 leading-relaxed">{_(practical.signal)}</p>
+      </div>
+      <div class="flex gap-3">
+        <span class="text-xl shrink-0">♿</span>
+        <p class="text-sm text-[color:var(--color-ink)]/90 leading-relaxed">{_(practical.accessibility)}</p>
+      </div>
+    </div>
+  </div>
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
     {practical.cards.map((card, i) => (
       <div class={`rounded-3xl bg-white border border-black/5 p-6 ${i === 3 ? 'bg-[color:var(--color-sun)]/20 border-[color:var(--color-sun)]/40' : ''}`}>

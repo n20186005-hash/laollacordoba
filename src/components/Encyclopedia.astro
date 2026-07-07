@@ -26,6 +26,42 @@ const _ = (s: any) => typeof s === 'string' ? s : (s[lang] || s.es || s.pt || ''
           <div class="text-4xl md:text-5xl mb-4">{item.icon}</div>
           <h3 class="font-display text-2xl md:text-3xl text-[color:var(--color-ink)]">{_(item.title)}</h3>
           <div class="mt-5 text-[color:var(--color-moss)] leading-[1.85] space-y-3" set:html={_(item.body)} />
+          {i === 0 && (
+            <figure class="mt-6 rounded-2xl border border-black/10 bg-[color:var(--color-mist)] p-4">
+              <svg viewBox="0 0 420 300" class="w-full h-auto" role="img" aria-label="Marmita cross-section diagram">
+                <defs>
+                  <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#8fd3bd"/>
+                    <stop offset="100%" stop-color="#2F6B4E"/>
+                  </linearGradient>
+                  <marker id="arrow" markerWidth="9" markerHeight="9" refX="5" refY="3" orient="auto">
+                    <path d="M0 0 L6 3 L0 6 Z" fill="#1F3B34"/>
+                  </marker>
+                </defs>
+                <rect x="0" y="0" width="420" height="300" fill="#EDF3EF"/>
+                <rect x="30" y="70" width="360" height="210" rx="4" fill="#c9bdae"/>
+                <circle cx="70" cy="120" r="3" fill="#b3a692"/>
+                <circle cx="350" cy="230" r="3" fill="#b3a692"/>
+                <circle cx="120" cy="250" r="2.5" fill="#b3a692"/>
+                <circle cx="300" cy="110" r="2.5" fill="#b3a692"/>
+                <path d="M152 70 C138 120 150 205 210 208 C270 205 282 120 268 70 Z" fill="url(#waterGrad)"/>
+                <ellipse cx="210" cy="70" rx="58" ry="13" fill="#a7e0cd"/>
+                <path d="M64 4 L112 4 L150 66 L132 70 Z" fill="#9fd8c4"/>
+                <path d="M88 30 L138 60" stroke="#2F6B4E" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+                <path d="M210 108 A42 42 0 1 1 172 150" stroke="#0B1F1A" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+                <path d="M210 132 A20 20 0 1 0 230 152" stroke="#0B1F1A" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.7"/>
+                <circle cx="200" cy="138" r="4" fill="#e9e2d5"/>
+                <circle cx="224" cy="150" r="3.2" fill="#e9e2d5"/>
+                <circle cx="196" cy="162" r="3.5" fill="#e9e2d5"/>
+                <text x="44" y="22" font-size="12" fill="#1F3B34" font-weight="600">{_(encyclopedia.diagramWater)}</text>
+                <text x="250" y="150" font-size="12" fill="#1F3B34" font-weight="600">{_(encyclopedia.diagramVortex)}</text>
+                <text x="318" y="204" font-size="12" fill="#1F3B34" font-weight="600">{_(encyclopedia.diagramGranite)}</text>
+                <text x="14" y="150" font-size="12" fill="#1F3B34" font-weight="600" transform="rotate(-90 14 150)" text-anchor="middle">{_(encyclopedia.diagramDepth)}</text>
+                <line x1="22" y1="70" x2="22" y2="208" stroke="#1F3F1A" stroke-width="1" stroke-dasharray="3 3"/>
+              </svg>
+              <figcaption class="mt-3 text-xs text-[color:var(--color-moss)]/80 text-center">{_(encyclopedia.diagramCaption)}</figcaption>
+            </figure>
+          )}
         </div>
       </article>
     ))}
