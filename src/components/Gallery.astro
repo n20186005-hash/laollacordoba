@@ -1,9 +1,9 @@
 ---
 import type { Lang } from '../i18n/utils';
-import { gallery } from '../i18n/translations';
+import { gallery, t } from '../i18n/translations';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
-const _ = (s: any) => typeof s === 'string' ? s : (s[lang] || s.es || s.pt || '');
+const _ = (s: any) => t(s, lang);
 const idx = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 const imgs = idx.map(n => `/gallery/la-olla-${n}.jpg`);
 const gmapsUrl = 'https://maps.app.goo.gl/hmnqBTLmqFXgpDCh6';
@@ -25,7 +25,7 @@ const bento = [
     <div class="grid grid-cols-12 gap-3 md:gap-4">
       {imgs.map((src, i) => (
         <figure class={`${bento[i] || 'col-span-6 aspect-[4/3]'} rounded-2xl overflow-hidden`}>
-          <img loading="lazy" alt={`La Olla — La Cumbrecita — 照片 ${i + 1}`} class="w-full h-full object-cover hover:scale-105 transition duration-700" src={src} />
+          <img loading="lazy" alt={`La Olla — La Cumbrecita — ${_(gallery.photoLabel)} ${i + 1}`} class="w-full h-full object-cover hover:scale-105 transition duration-700" src={src} />
         </figure>
       ))}
     </div>

@@ -193,8 +193,8 @@ export const ecology = {
 
 // ── FAQ ──
 export const faq = {
-  sectionNum: { zh: `官方访客指南`, en: `Official Visitor Guide`, it: `Guida ufficiale del visitante`, es: `Guía Oficial del Visitante` } as T,
-  heading: { zh: `访客指南与<em class="text-[color:var(--color-emerald)]">常见问题</em>`, en: `Visitor Guide &<br/><em class="text-[color:var(--color-emerald)]"> FAQ</em>`, it: `Guida del visitante e<br/><em class="text-[color:var(--color-emerald)]"> domande frequenti</em>`, es: `Guía del visitante &<br/><em class="text-[color:var(--color-emerald)]"> preguntas</em>` } as T,
+  sectionNum: { zh: `官方访客指南`, en: `Official Visitor Guide`, it: `Guida ufficiale del visitatore`, es: `Guía Oficial del Visitante` } as T,
+  heading: { zh: `访客指南与<em class="text-[color:var(--color-emerald)]">常见问题</em>`, en: `Visitor Guide &<br/><em class="text-[color:var(--color-emerald)]"> FAQ</em>`, it: `Guida del visitatore e<br/><em class="text-[color:var(--color-emerald)]"> domande frequenti</em>`, es: `Guía del visitante &<br/><em class="text-[color:var(--color-emerald)]"> preguntas</em>` } as T,
   disclaimer: {
     zh: `以下信息由 laolla 独立科普团队根据公开资料整理，仅供访客参考。出行前请通过阿根廷官方旅游与科尔多瓦省旅游渠道核实最新政策。`,
     en: `The following information has been compiled by the independent laolla editorial team from publicly available sources and is provided for visitor reference only. Please verify the latest policies through official Argentine tourism and Córdoba Province channels before your visit.`,
@@ -243,7 +243,7 @@ export const faq = {
 
 // ── Leave No Trace ──
 export const leaveNoTrace = {
-  sectionNum: { zh: `游览公约`, en: `Visitor Code`, it: `Codice del visitante`, es: `Código del visitante` } as T,
+  sectionNum: { zh: `游览公约`, en: `Visitor Code`, it: `Codice del visitatore`, es: `Código del visitante` } as T,
   heading: { zh: `无痕山林<br/><em class="text-[color:var(--color-emerald)]">公约</em>`, en: `Leave No Trace<br/><em class="text-[color:var(--color-emerald)]"> Code</em>`, it: `Non lasciare traccia<br/><em class="text-[color:var(--color-emerald)]"> codice</em>`, es: `No Dejar Rastro<br/><em class="text-[color:var(--color-emerald)]"> Código</em>` } as T,
   subtitle: {
     zh: `作为卡拉穆奇塔山谷中一处免费的天然公共风景，La Olla 属于每一位旅人与下代访客。请在到访前阅读并承诺遵守以下准则，让这潭碧水长久清澈。`,
@@ -366,12 +366,14 @@ export const footer = {
   cta: { zh: `今天，去<br/><em class="text-[color:var(--color-sun)]">遇见山谷的碧水</em>。`, en: `Today, go<br/><em class="text-[color:var(--color-sun)]">meet the valley's green water</em>.`, it: `Oggi, vai<br/><em class="text-[color:var(--color-sun)]">a incontrare l'acqua verde della valle</em>.`, es: `Hoy, ve<br/><em class="text-[color:var(--color-sun)]">a encontrar el agua verde del valle</em>.` } as T,
   address: { zh: `La Olla · 拉昆布雷西塔 · 卡拉穆奇塔，科尔多瓦省，阿根廷`, en: `La Olla · La Cumbrecita · Calamuchita, Córdoba, Argentina`, it: `La Olla · La Cumbrecita · Calamuchita, Córdoba, Argentina`, es: `La Olla · La Cumbrecita · Calamuchita, Córdoba, Argentina` } as T,
   copyright: { zh: `© 2026 laolla · 保留所有权利。`, en: `© 2026 laolla. All rights reserved.`, it: `© 2026 laolla. Tutti i diritti riservati.`, es: `© 2026 laolla. Todos los derechos reservados.` } as T,
+  locationLabel: { zh: `位置`, en: `Location`, it: `Posizione`, es: `Ubicación` } as T,
+  ratingLabel: { zh: `评分`, en: `Rating`, it: `Valutazione`, es: `Puntuación` } as T,
   disclaimer: { zh: `本网站是一个独立的第三方自然教育项目，与任何政府机构、景点运营方或商业机构均无关联。`, en: `This website is an independent third-party nature-education project. We are not affiliated with any government agency, attraction operator or commercial entity.`, it: `Questo sito è un progetto indipendente di educazione naturalistica di terze parti. Non è affiliato a nessun ente governativo, gestore di attrazioni o entità commerciale.`, es: `Este sitio es un proyecto independiente de educación natural de terceros. No estamos afiliados a ningún organismo gubernamental, operador de atracciones o entidad comercial.` } as T,
   sourcesNote: { zh: `下列外部链接仅用于公共信息核验与友情推荐，不构成景点、服务或机构的商业推荐。`, en: `The external links below are provided only for public-information verification and as friend links; they do not constitute commercial recommendations of any attraction, service or institution.`, it: `I link esterni qui sotto sono forniti solo per la verifica di informazioni pubbliche e come link amici; non costituiscono raccomandazioni commerciali di attrazioni, servizi o istituzioni.`, es: `Los enlaces externos de abajo se ofrecen solo para verificar informacion publica y como enlaces de amigos; no constituyen recomendaciones comerciales de ningun atractivo, servicio o institucion.` } as T,
   privacy: { zh: `隐私政策`, en: `Privacy Policy`, it: `Informativa sulla privacy`, es: `Política de Privacidad` } as T,
   terms: { zh: `服务条款`, en: `Terms of Service`, it: `Termini di servizio`, es: `Términos del Servicio` } as T,
   cookies: { zh: `Cookie 设置`, en: `Cookie Settings`, it: `Impostazioni cookie`, es: `Configuración de Cookies` } as T,
-  leaveNoTrace: { zh: `游览公约`, en: `Visitor Code`, it: `Codice del visitante`, es: `Código del visitante` } as T,
+  leaveNoTrace: { zh: `游览公约`, en: `Visitor Code`, it: `Codice del visitatore`, es: `Código del visitante` } as T,
 };
 
 // ── Privacy Policy Page ──

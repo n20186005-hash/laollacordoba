@@ -1,7 +1,7 @@
 ---
 import '../../../src/styles/global.css';
 import { LANGUAGES, type Lang } from '../../i18n/utils';
-import { meta } from '../../i18n/translations';
+import { meta, t } from '../../i18n/translations';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import Hero from '../../components/Hero.astro';
@@ -26,7 +26,7 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Lang;
-const _ = (s: any) => typeof s === 'string' ? s : (s[lang] || s.es || s.pt || '');
+const _ = (s: any) => t(s, lang);
 const title = _(meta.title);
 const desc = _(meta.description);
 ---
