@@ -3,7 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://laolla.com.ar',
+  site: 'https://laollacordoba.com',
+  trailingSlash: 'always',
   i18n: {
     defaultLocale: 'es',
     locales: ['zh', 'en', 'it', 'es'],

@@ -10,3 +10,4 @@ export const t = (s: Record<string, string> | string, lang: Lang): string =>
 // all typed as the 4-language `T` object above.
 export * from './translations.core';
 export * from './translations.extra';
+export * from './translations.cumbrecita';

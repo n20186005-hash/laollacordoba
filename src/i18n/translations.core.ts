@@ -31,7 +31,7 @@ export const hero = {
     zh: `La Olla ·<br/><span class="italic text-[color:var(--color-sun)]">卡拉穆奇塔山谷的天然水潭</span>`,
     en: `La Olla ·<br/><span class="italic text-[color:var(--color-sun)]">a natural pool in Calamuchita</span>`,
     it: `La Olla ·<br/><span class="italic text-[color:var(--color-sun)]">una pozza naturale a Calamuchita</span>`,
-    es: `La Olla ·<br/><span class="italic text-[color:var(--color-sun)]">una poza natural en Calamuchita</span>`,
+    es: `La Olla en La Cumbrecita, Córdoba`,
   } as T,
   subtitle: {
     zh: `La Olla · 科尔多瓦省卡拉穆奇塔山谷中，一处被瀑布冲刷千年、深约 6 米的天然圆形水潭。紧邻步行小镇拉昆布雷西塔，是阿根廷中部最治愈的远足与夏日戏水秘境。`,
@@ -84,10 +84,10 @@ export const manifesto = {
     es: `No hay juegos ni ruido — solo el rugido de la cascada cayendo en la marmita, la luz verde que se refracta en la roca y las risas de quienes se lanzan al agua fresca en verano. Al amanecer la valle suele vestir una neblina tenue; al mediodía el sol vuelve la superficie cristalina; tras la lluvia la cascata crece hasta sus minutos más conmovedores.`,
   } as T,
   p3: {
-    zh: `作为一家致力于自然教育的非盈利科普团队，我们搭建本网站，不仅为了告诉你如何抵达这处水潭，更想邀请你以“守护者”而非“游客”的身份来到这里。当你站在被水流打磨了千万年的岩边，你既是这片山谷的见证者，也是它得以长存的共谋者。`,
-    en: `As a non-profit team devoted to nature education, we built this site not only to tell you how to reach the pool, but to invite you to arrive as a guardian rather than a mere visitor. When you stand on the rock shaped by water for millions of years, you become both a witness to this valley and a co-keeper of its future.`,
-    it: `Come team no-profit di educazione naturalistica, abbiamo creato questo sito non solo per spiegarti come arrivare, ma per invitarti a venire come custode e non solo come visitatore. Sulla roccia modellata dall'acqua da milioni di anni, diventi testimone della valle e suo co-custode.`,
-    es: `Como equipo sin fines de lucro dedicado a la educación natural, creamos este sitio no solo para decirte cómo llegar, sino para invitarte a venir como guardián y no solo como visitante. Cuando te paras en la roca modelada por el agua durante millones de años, te vuelves testigo del valle y co-custodio de su futuro.`,
+    zh: `作为一个独立的旅行与自然向导团队，我们搭建本网站，不仅为了告诉你如何抵达这处水潭，更想邀请你以“守护者”而非“游客”的身份来到这里。当你站在被水流打磨了千万年的岩边，你既是这片山谷的见证者，也是它得以长存的共谋者。`,
+    en: `As an independent travel and nature guide, we built this site not only to tell you how to reach the pool, but to invite you to arrive as a guardian rather than a mere visitor. When you stand on the rock shaped by water for millions of years, you become both a witness to this valley and a co-keeper of its future.`,
+    it: `Come guida indipendente di viaggio e natura, abbiamo creato questo sito non solo per spiegarti come arrivare, ma per invitarti a venire come custode e non solo come visitatore. Sulla roccia modellata dall'acqua da milioni di anni, diventi testimone della valle e suo co-custode.`,
+    es: `Como guía independiente de viaje y naturaleza, creamos este sitio no solo para decirte cómo llegar, sino para invitarte a venir como guardián y no solo como visitante. Cuando te paras en la roca modelada por el agua durante millones de años, te vuelves testigo del valle y co-custodio de su futuro.`,
   } as T,
   p4: {
     zh: `🌿 <strong>守护公共的自然风景。</strong>La Olla 与拉昆布雷西塔所在的卡拉穆奇塔山谷，是科尔多瓦省最受珍视的生态旅游区之一。作为独立的教育项目，本网站的初衷正与此契合：La Olla 不仅属于每一位旅人，更是这片自然遗产的重要一环。我们呼吁每一位访客以“无痕山林（Leave No Trace）”的方式到访，助力山谷生态的永续。`,
@@ -181,7 +181,7 @@ export const gallery = {
 // ── Reviews ──
 export const reviews = {
   sectionNum: { zh: `游客评价`, en: `Reviews`, it: `Recensioni`, es: `Opiniones` } as T,
-  heading: { zh: `4.7<span class="text-[color:var(--color-emerald)]">/5</span> · 来自 19,085 位旅行者`, en: `4.7<span class="text-[color:var(--color-emerald)]">/5</span> · from 19,085 travelers`, it: `4.7<span class="text-[color:var(--color-emerald)]">/5</span> · di oltre 19.085 viaggiatori`, es: `4.7<span class="text-[color:var(--color-emerald)]">/5</span> · de más de 19.085 viajeros` } as T,
+  heading: { zh: `4.7<span class="text-[color:var(--color-emerald)]">/5</span> · 来自 19,312 位旅行者`, en: `4.7<span class="text-[color:var(--color-emerald)]">/5</span> · from 19,312 travelers`, it: `4.7<span class="text-[color:var(--color-emerald)]">/5</span> · di oltre 19.312 viaggiatori`, es: `4.7<span class="text-[color:var(--color-emerald)]">/5</span> · de más de 19.312 viajeros` } as T,
   viewMoreReviews: { zh: `在 Google 地图上查看更多评价`, en: `View more reviews on Google Maps`, it: `Vedi più recensioni su Google Maps`, es: `Ver más opiniones en Google Maps` } as T,
   items: [
     { stars: '★★★★★', date: '2026-05', title: { zh: `"清凉又治愈的天然泳池"`, en: `"Cool and healing"`, it: `"Fresca e rigenerante"`, es: `"Fresca y relajante"` } as T, desc: { zh: `没想到步行小镇旁藏着这么一口碧绿的水潭。夏季跳进去凉到骨子里，瀑布声在岩壁间回荡，值回整段徒步。`, en: `Didn't expect such an emerald pool next to a pedestrian town. In summer the plunge is bracingly cold and the falls echo off the rock — worth the whole hike.`, it: `Non mi aspettavo una pozza così verde accanto a un paese pedonale. D'estate il tuffo è freschissimo e la cascata rimbomba sulla roccia: vale tutta la camminata.`, es: `No esperaba una poza tan verde junto a un pueblo peatonal. En verano el salto es fresquísimo y la cascada retumba en la roca: vale toda la caminata.` } as T, author: 'Lucía M. · 🇦🇷' },

@@ -1,0 +1,179 @@
+---
+import '../../../src/styles/global.css';
+import { LANGUAGES, type Lang } from '../../i18n/utils';
+import { cumbrecita, footer, t } from '../../i18n/translations';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  return LANGUAGES.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const _ = (s: any) => t(s, lang);
+const gmapsUrl = 'https://maps.app.goo.gl/hmnqBTLmqFXgpDCh6';
+const laOllaUrl = `/${lang}/`;
+
+// JSON-LD: a tourist-attraction entry for the village + an FAQPage.
+const attraction = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'TouristAttraction',
+  name: 'La Cumbrecita',
+  description: _(cumbrecita.meta.description),
+  image: new URL('/gallery/la-olla-1.jpg', Astro.site).href,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'La Cumbrecita',
+    addressRegion: 'Córdoba',
+    addressCountry: 'AR',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: -32.12, longitude: -64.77 },
+  isAccessibleForFree: true,
+  touristType: ['Families', 'Hikers', 'Nature'],
+});
+
+const faqData = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: cumbrecita.faq.items.map((item) => ({
+    '@type': 'Question',
+    name: t(item.q, lang),
+    acceptedAnswer: { '@type': 'Answer', text: t(item.a, lang) },
+  })),
+});
+
+const sectionIds = ['que-hacer', 'llegar', 'estacionar', 'mapa', 'clima', 'itinerario', 'faq'];
+---
+<BaseLayout lang={lang} title={_(cumbrecita.meta.title)} description={_(cumbrecita.meta.description)}>
+  <Nav lang={lang} />
+  <section class="hero-bg relative min-h-[80vh] flex items-end pt-24" style="background-image: linear-gradient(180deg, rgba(11,31,26,.15) 0%, rgba(11,31,26,.55) 55%, rgba(11,31,26,.85) 100%), url('/gallery/la-olla-2.jpg')">
+    <div class="relative max-w-7xl mx-auto px-6 pb-16 w-full text-white">
+      <nav aria-label="breadcrumb" class="flex items-center gap-2 mb-6 text-white/80 text-xs md:text-sm tracking-wide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-80 shrink-0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>{_(cumbrecita.hero.breadcrumb)}</span>
+      </nav>
+      <h1 class="font-display font-semibold leading-[0.95] tracking-tight text-5xl md:text-7xl lg:text-8xl max-w-4xl">{_(cumbrecita.hero.title)}</h1>
+      <p class="mt-6 max-w-2xl text-white/85 text-lg md:text-xl leading-relaxed">{_(cumbrecita.hero.subtitle)}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={`#${sectionIds[0]}`} class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur border border-white/20 rounded-full px-5 py-3 text-sm font-medium transition-colors">{_(cumbrecita.things.heading)}</a>
+        <a href={`#${sectionIds[1]}`} class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur border border-white/20 rounded-full px-5 py-3 text-sm font-medium transition-colors">{_(cumbrecita.llegar.heading)}</a>
+        <a href={`#${sectionIds[3]}`} class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur border border-white/20 rounded-full px-5 py-3 text-sm font-medium transition-colors">{_(cumbrecita.map.heading)}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="bg-[color:var(--color-cream)] py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-sun)]">{_(cumbrecita.hero.title)}</div>
+      <h2 class="font-display text-4xl md:text-5xl mt-4 text-[color:var(--color-ink)]">{_(cumbrecita.intro.heading)}</h2>
+      <p class="mt-6 text-[color:var(--color-moss)] leading-relaxed text-lg">{_(cumbrecita.intro.body)}</p>
+    </div>
+  </section>
+
+  <!-- Qué hacer -->
+  <section id={sectionIds[0]} class="bg-[color:var(--color-moss)] text-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mb-14">
+        <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-sun)]">{_(cumbrecita.things.subtitle)}</div>
+        <h2 class="font-display text-4xl md:text-6xl mt-4">{_(cumbrecita.things.heading)}</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cumbrecita.things.items.map((item, i) => (
+          <article class="card-hover rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-7">
+            <div class="text-2xl">{item.icon}</div>
+            <h3 class="font-display text-2xl mt-3">{_(item.title)}</h3>
+            <p class="mt-3 text-white/75 leading-relaxed">{_(item.desc)}</p>
+            {i === 0 && (
+              <a href={laOllaUrl} class="link-underline inline-block mt-4 text-[color:var(--color-sun)] font-medium">{_(cumbrecita.links.laOlla)} →</a>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo llegar -->
+  <section id={sectionIds[1]} class="bg-[color:var(--color-cream)] py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-display text-4xl md:text-5xl text-[color:var(--color-ink)]">{_(cumbrecita.llegar.heading)}</h2>
+      <p class="mt-6 text-[color:var(--color-moss)] leading-relaxed text-lg">{_(cumbrecita.llegar.body)}</p>
+    </div>
+  </section>
+
+  <!-- Dónde estacionar -->
+  <section id={sectionIds[2]} class="bg-white py-20 md:py-28 border-y border-black/5">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-display text-4xl md:text-5xl text-[color:var(--color-ink)]">{_(cumbrecita.parking.heading)}</h2>
+      <p class="mt-6 text-[color:var(--color-moss)] leading-relaxed text-lg">{_(cumbrecita.parking.body)}</p>
+    </div>
+  </section>
+
+  <!-- Mapa -->
+  <section id={sectionIds[3]} class="bg-[color:var(--color-cream)] py-20 md:py-28">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-sun)] mb-4">{_(cumbrecita.map.heading)}</div>
+      <h2 class="font-display text-4xl md:text-5xl text-[color:var(--color-ink)]">{_(cumbrecita.hero.title)}</h2>
+      <p class="mt-4 text-[color:var(--color-moss)] leading-relaxed text-lg max-w-3xl">{_(cumbrecita.map.body)}</p>
+      <a href={gmapsUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 bg-[color:var(--color-emerald)] hover:opacity-90 text-white rounded-full px-5 py-3 text-sm font-medium transition-opacity">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Google Maps →
+      </a>
+    </div>
+  </section>
+
+  <!-- Clima -->
+  <section id={sectionIds[4]} class="bg-[color:var(--color-mist)] py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-display text-4xl md:text-5xl text-[color:var(--color-ink)]">{_(cumbrecita.climate.heading)}</h2>
+      <p class="mt-6 text-[color:var(--color-moss)] leading-relaxed text-lg">{_(cumbrecita.climate.body)}</p>
+    </div>
+  </section>
+
+  <!-- Itinerario -->
+  <section id={sectionIds[5]} class="bg-[color:var(--color-cream)] py-20 md:py-28">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-4xl md:text-5xl text-[color:var(--color-ink)] mb-10">{_(cumbrecita.itinerary.heading)}</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-3xl border border-black/10 p-7">
+          <div class="font-display text-2xl text-[color:var(--color-emerald)]">{_(cumbrecita.itinerary.half)}</div>
+          <p class="mt-3 text-[color:var(--color-moss)] leading-relaxed">{_(cumbrecita.itinerary.halfText)}</p>
+        </div>
+        <div class="rounded-3xl border border-black/10 p-7">
+          <div class="font-display text-2xl text-[color:var(--color-emerald)]">{_(cumbrecita.itinerary.full)}</div>
+          <p class="mt-3 text-[color:var(--color-moss)] leading-relaxed">{_(cumbrecita.itinerary.fullText)}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id={sectionIds[6]} class="bg-[color:var(--color-mist)] py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-display text-4xl md:text-5xl text-[color:var(--color-ink)] mb-10">{_(cumbrecita.faq.heading)}</h2>
+      <div class="space-y-4">
+        {cumbrecita.faq.items.map((item) => (
+          <details class="rounded-2xl bg-white border border-black/10 p-5">
+            <summary class="font-medium cursor-pointer list-none flex items-center justify-between">
+              <span>{t(item.q, lang)}</span>
+              <span class="faq-plus text-[color:var(--color-emerald)] text-2xl">+</span>
+            </summary>
+            <p class="mt-3 text-[color:var(--color-moss)] leading-relaxed">{t(item.a, lang)}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA back to La Olla -->
+  <section class="bg-[color:var(--color-ink)] text-[color:var(--color-cream)] py-20 md:py-28">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-4xl leading-tight">{_(cumbrecita.cta.title)}</h2>
+      <a href={laOllaUrl} class="mt-8 inline-flex items-center gap-2 bg-[color:var(--color-sun)] hover:opacity-90 text-[color:var(--color-ink)] rounded-full px-6 py-3 text-sm font-semibold transition-opacity">{_(cumbrecita.cta.linkLabel)} →</a>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+  <Fragment set:html={'<script type="application/ld+json">' + attraction + '</script><script type="application/ld+json">' + faqData + '</script>'} />
+</BaseLayout>

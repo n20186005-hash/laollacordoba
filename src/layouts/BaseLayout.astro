@@ -3,13 +3,15 @@ import '../styles/global.css';
 import type { Lang } from '../i18n/utils';
 import { LANG_LABELS, LANGUAGES } from '../i18n/utils';
 
-interface Props { lang: Lang; title: string; description: string; }
-const { lang, title, description } = Astro.props;
+interface Props { lang: Lang; title: string; description: string; noindex?: boolean; }
+const { lang, title, description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const alternates = LANGUAGES.map((l) => {
   const path = Astro.url.pathname.replace(`/${lang}`, `/${l}`);
   return { lang: l, href: new URL(path, Astro.site).href };
 });
+// x-default always points to the Spanish (default) version of the current page.
+const xDefaultHref = new URL(Astro.url.pathname.replace(`/${lang}`, '/es'), Astro.site).href;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -18,7 +20,9 @@ const alternates = LANGUAGES.map((l) => {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+  <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
